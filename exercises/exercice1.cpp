@@ -1,41 +1,53 @@
-#include <string>
+
 #include <iostream>
+#include <string>
+using namespace std;
 
-std::string to_string_custom(int nbre, int base = 10) {
-    // Geçersiz taban kontrolü
-    if (base < 2 || base > 16) {
-        return "";
+
+
+
+
+
+string to_string_custom(int nbre, int base =10){
+    // La base doit être comprise entre 2 et 16
+    if(base < 2 || base >16){
+        return ""; // Retourne une chaine vide si la base est invalde
     }
 
-    // Negatif sayı kontrolü
-    bool negatif = false;
-    if (nbre < 0) {
-        negatif = true;
-        nbre = -nbre; // Sayıyı pozitif yap
+    // Gestion des nombres négatifs
+    bool negatif = false; // Flag pout indiquer si le nombre est négatif
+    if(nbre < 0){
+        negatif = true; //ndique que le nombre est négatif
+        nbre = -nbre; // convertit le nombre en positif pour la conversion 
     }
 
-    // Taban dönüşümü
-    std::string resultat = "";
-    const char* chiffres = "0123456789ABCDEF";
+    const char* chiffres ="0123456789ABCDEF";
+    string resultat ="";
 
-    do {
-        int reste = nbre % base;
-        resultat = chiffres[reste] + resultat;
-        nbre /= base;
-    } while (nbre > 0);
+    do{
+        int reste = nbre % base; // obtient le reste de la division par la base
 
-    // Negatif işareti ekleme
-    if (negatif) { // negatif = true ise bu blok çalışır
+        resultat  = chiffres[reste] +resultat; //Ajoute le caractère correspondant au résultat
+        nbre /=base; // Divise le nombre par la base pour continuer la conversion
+
+    }while(nbre > 0);
+
+    if(negatif){
         resultat = "-" + resultat;
     }
 
-    return resultat;
+
+
+    return resultat; //retourne la chaine resultante
 }
 
-int main() {
-    std::cout << to_string_custom(123, 16) << std::endl;  // Çıktı: 7B
-    std::cout << to_string_custom(-45, 8) << std::endl;   // Çıktı: -55
-    std::cout << to_string_custom(100, 10) << std::endl;  // Çıktı: 100
-    std::cout << to_string_custom(50, 20) << std::endl;   // Çıktı: (boş string, geçersiz taban)
+int main(){
+    cout<<to_string_custom(299,10)<<endl;
+    cout<<to_string_custom(-299,16)<<endl;
+    cout<<to_string_custom(255,2)<<endl;
+    cout<<to_string_custom(100,10)<<endl;
+    cout<<to_string_custom(50,20)<<endl;
+
+
     return 0;
 }
