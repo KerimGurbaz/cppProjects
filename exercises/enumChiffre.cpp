@@ -1,10 +1,11 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-enum class Chiffre{ZERO, UN, DUEX, TRIOS, QUATRE, CINQ, SIX, SEPT, HUIT, NEUF};
 
 
-int main(){
+
+/*int main(){
     // Boucle pour parcourir les valeurs de l'énumération
     for(Chiffre i = Chiffre::ZERO ; i<=Chiffre::NEUF; i= static_cast<Chiffre>(static_cast<int>(i) + 1) ){
       
@@ -31,7 +32,9 @@ int main(){
         }
         else if(i == Chiffre::HUIT){
             cout<<"HUIT";
-        }else(cout<<"NEUF");
+        }else if(i==Chiffre::NEUF){
+            cout<<"NEUF";
+        }
 
         // VIRGUL VE BOSLUK EKLE
         if(i != Chiffre::NEUF){
@@ -41,4 +44,19 @@ int main(){
     }
 
     return EXIT_SUCCESS;
+}
+*/
+
+enum class Chiffre{ZERO, UN, DUEX, TRIOS, QUATRE, CINQ, SIX, SEPT, HUIT, NEUF};
+
+const string CHIFFRE[] = {"ZERO", "UN", "DUEX", "TRIOS", "QUATRE", "CINQ", "SIX", "SEPT", "HUIT", "NEUF"};
+
+int main(){
+    for(Chiffre i = Chiffre::ZERO; i<=Chiffre::NEUF; i = Chiffre(int(i) + 1)){
+        if(i!= Chiffre::ZERO){
+            cout<<", ";
+        }
+
+        cout<<CHIFFRE[int(i)];
+    }
 }
