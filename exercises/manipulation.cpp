@@ -20,9 +20,5 @@ std::cout << std::fixed << std::setprecision(5) << pi <<std::flush;  // 3.14159
 
 std::cout << std::showpos << num << "\n";  // +15
 
-
-
-
-
     return 0;
 }
