@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <algorithm>
 #include <cmath>
 using namespace std;
 
@@ -22,7 +24,16 @@ int main(){
     cout<<apply_op(3., 3., '/') << endl;
     cout<<apply_op(2., 3., '&') << endl;
 
+
+string s("012345");
+string t(s.size(), 'x');
+copy(s.begin() + 1, s.begin() + 4, t.begin() + 2);
+cout << t;
+
+
+
     return 0;
+
 
 
 }
