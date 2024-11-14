@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void afficher(int t[], unsigned s){
+void afficher(const int t[], unsigned s){
 
     cout<<"[";
     for(unsigned i = 0; i<s ; i++){
@@ -11,4 +11,41 @@ void afficher(int t[], unsigned s){
         }
     }
     cout<<"]";
+}
+
+void supprimer_valeurs(int t1[], unsigned &s1, const int t2[], unsigned s2){
+    unsigned nouvelle_taille = 0; // Yeni dizinin uzunlugu
+
+
+    
+    for(unsigned i = 0; i < s1; i++){
+        bool est_present =false;
+
+//t1[i] elemaninin t2 dizisinde olup olmadigini kontrol et]
+       for(unsigned j = 0; j<s2; j++){
+        if(t1[i] == t2[j]){
+            est_present = true;
+            break;
+        }
+       }
+
+       if(!est_present){
+        t1[nouvelle_taille] = t1[i];
+        nouvelle_taille++;
+       }
+    }
+    s1 = nouvelle_taille;
+}
+
+int main(){
+    int t1[] = {1,3,2,3,5,4,6,2,0,6};
+    unsigned s1 = sizeof(t1) / sizeof(int);
+    afficher(t1, s1);
+
+    const int t2[] = {3, 6};
+    const unsigned s2 = sizeof(t2) / sizeof(int);
+    afficher(t2, s2);
+
+    supprimer_valeurs(t1, s1, t2, s2);
+    afficher(t1, s1);
 }
