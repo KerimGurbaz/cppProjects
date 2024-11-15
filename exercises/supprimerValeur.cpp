@@ -60,6 +60,7 @@ int main(){
 #include <iostream>
 using namespace std;
 
+/*
 int main() {
 
     int tab[10];
@@ -89,4 +90,35 @@ int main() {
 
     return 0;
 
+}
+
+
+*/
+
+int main(){
+
+    const int taille = 10;
+    int tab[taille];
+    int min, max;
+    int *ptr = tab;
+
+    for(int i = 0 ; i<taille ; i++){
+        cout<<"Nombre : "<<(i+1)<<": ";
+        cin>>tab[i];
+    }
+
+   min =*ptr;
+   max = *ptr;
+
+   for(ptr = tab + 1; ptr<tab +taille; ptr++){
+    if(*ptr > max){
+        max = *ptr;
+    }
+    if(*ptr < min){
+        min = *ptr;
+    }
+   }
+
+   cout<<"\nLe plus grand nombre est : "<<max<< endl;
+   cout<<"Le plus petit nombre est : "<<min<<endl;
 }
