@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void afficher(int t[],  unsigned taille) {
+void afficher(const int t[],  unsigned taille) {
     cout<<"[";
     for(unsigned i = 0; i<taille ; i++) {
         cout<<t[i];
@@ -12,7 +12,7 @@ void afficher(int t[],  unsigned taille) {
     cout<<" ]"<<endl;
 }
 
-void supprimer_valeur(int t1[], int &s1, const int t2[], unsigned s2) {
+void supprimer_valeur(int t1[], unsigned &s1, const int t2[], unsigned s2) {
     unsigned k = 0; // k suivra la nouvelle taille du tableau
     for(unsigned i =0; i< s1; i++) {
         bool found = false;
@@ -30,8 +30,16 @@ void supprimer_valeur(int t1[], int &s1, const int t2[], unsigned s2) {
 
 
 int main() {
+    int t1[] = {1, 3, 2, 3, 5, 4, 6, 2, 0, 6};
+    unsigned s1 = sizeof(t1) / sizeof(t1[0]);
+    afficher(t1, s1);
 
+    const int t2[] = {3, 6};
+    const unsigned s2 = sizeof(t2) / sizeof(t2[0]);
+    afficher(t2, s2);
 
+    supprimer_valeur(t1, s1, t2, s2);
+    afficher(t1, s1);
 
     return 0 ;
 }
