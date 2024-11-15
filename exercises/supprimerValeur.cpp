@@ -94,8 +94,9 @@ int main() {
 
 
 */
-
-int main(){
+// practice make perfect
+/**
+ * int main(){
 
     const int taille = 10;
     int tab[taille];
@@ -122,3 +123,29 @@ int main(){
    cout<<"\nLe plus grand nombre est : "<<max<< endl;
    cout<<"Le plus petit nombre est : "<<min<<endl;
 }
+ */
+int main() {
+    const int taille = 10;
+    int tab[taille];
+
+    for(int i = 0; i<taille; i++) {
+        cout<<"Nombre : "<< (i+1)<<": ";
+        cin>>tab[i];
+    }
+
+    int min = tab[0];
+    int max = tab[0];
+
+    for(int i = 1 ; i<taille ; i++) {
+        if(tab[i]< min) {
+            min=tab[i];
+        }
+        if(tab[i]>max) {
+            max = tab[i];
+        }
+    }
+
+    cout<<"\nLe plus grand nombre est : "<<max<<endl;
+    cout<<"Le plus petit nombre est : "<< min<<endl;
+}
+
