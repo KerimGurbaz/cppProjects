@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-void afficher(const int t[], unsigned s){
+
+/**void afficher(const int t[], unsigned s){
 
     cout<<"[";
     for(unsigned i = 0; i<s ; i++){
@@ -48,4 +49,44 @@ int main(){
 
     supprimer_valeurs(t1, s1, t2, s2);
     afficher(t1, s1);
+}
+ * 
+ */
+
+
+//
+// Created by Krm on 15/11/2024.
+//
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int tab[10];
+
+
+
+    cout <<"Entrez des 10 nombres entiers";
+    for(int i =0; i<10 ; i++) {
+        cout<<"Nombre "<< (i+1)<<": ";
+        cin>>tab[i];
+
+    }
+    int min =tab[0];
+    int max = tab[0];
+
+    for(int i =0; i<10; i++) {
+          if(tab[i] <min) {
+        min = tab[i];
+    }
+    if(tab[i] > max) {
+        max = tab[i];
+    }
+    }
+
+    cout<<"min = "<<min<<endl;
+    cout<<"max = "<<max<<endl;
+
+    return 0;
+
 }
