@@ -3,6 +3,8 @@
 #include <algorithm>
 using namespace std; //
 
+
+/*
 // fonction d'aide qui imprime les éléments 
 void afficherElement(int i){
     cout<<i <<'_';
@@ -24,4 +26,27 @@ int main(){
 
 
     return 0;
+}
+ */
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void afficherElement(int i){
+    cout<<i<< "_";
+}
+
+void afficher(vector<int>&v){
+    if(!v.empty()){
+        for_each(v.begin(), v.end() -1, afficherElement);
+        cout<<v.back();
+    }
+}
+
+int main(){
+    vector<int> v = {1,2,3};
+    afficher(v);
 }
