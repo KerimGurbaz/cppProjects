@@ -49,4 +49,18 @@ void afficher(vector<int>&v){
 int main(){
     vector<int> v = {1,2,3};
     afficher(v);
+
+    /*string str1("12345", 3);
+    string str2(str1, 1);
+    cout <<"\n"<< str1 <<"\n"<< str2;
+    */
+
+    
+string str1 = "XYZ";
+str1.insert(1, "YYY", 2);
+str1.resize(3);
+cout <<"\n" <<str1;
+
+
+
 }
