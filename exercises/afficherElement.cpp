@@ -62,7 +62,7 @@ str1.resize(3);
 cout <<"\n" <<str1;
 
 
-float t1[10], t2[10]; //  déclaration des tableaux
+/*float t1[10], t2[10]; //  déclaration des tableaux
 int index = 0; // index pour le tableau t1
 
 // Parcourir de t2 pour recopier les élements positifs dans t1
@@ -77,6 +77,23 @@ for(int i = 0 ; i < 10; i++ ){
 
 for(int i = index; index<10; i++){
     t1[i] = 0; // ajoute des zéros dans les emplacement
+}
+*/
+
+float t1[10], t2[10];
+
+int index = 0;
+
+for(int i =0 ; i<10; i++){
+    if(t2[i] > 0 ){
+        t1[index] = t2[i];
+        index++;
+
+    }
+}
+
+for(int i =index ; i<10; i++){
+    t1[i]=0;
 }
 
 
