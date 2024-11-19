@@ -63,7 +63,7 @@ int main(){
     return 0;
 } */
 
- float somme_tableau(float t[], int taille){
+ float somme_tableau( float t[], int taille){
     float somme = 0;
 
     for(int i =0; i<taille; i++){
