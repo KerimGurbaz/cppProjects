@@ -26,7 +26,7 @@ int main(){
     }
 
     // Allocation dynamique du deuxième tableau pour les carrés
-    int * carreTableau = new [taille];
+    int * carreTableau = new int[taille];
     
     // 5. Calcul des carrés et stokage dans le deuxième tableau
     for(int i = 0; i < taille; ++i){
@@ -49,3 +49,4 @@ int main(){
 
     return 0;
 }
+
