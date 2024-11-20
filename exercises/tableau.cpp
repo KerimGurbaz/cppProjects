@@ -122,25 +122,56 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <string>
+// using namespace std;
+
+// void afficher(string texte)
+// {
+//     int taille = texte.size();
+
+//     for (int i = taille; i > 0; --i)
+//     {
+//         cout << string(taille - i, ' ')
+//              << texte.substr(0, i)
+//              << endl;
+//     }
+// }
+
+// int main()
+// {
+
+//     afficher("Bonjour");
+//     return 0;
+// }
+
 #include <iostream>
-#include <string>
 using namespace std;
 
-void afficher(string texte)
-{
-    int taille = texte.size();
+// int &f(){
+//     static int value;
+//     value ++;
+//     return value;
+// }
 
-    for (int i = taille; i > 0; --i)
-    {
-        cout << string(taille - i, ' ')
-             << texte.substr(0, i)
-             << endl;
-    }
+int & f(){
+    static int valeur =0; 
+    valeur++;
+    return valeur;
 }
 
-int main()
-{
+int main(){
 
-    afficher("Bonjour");
+    for(int i = 0; i < 5; ++i)
+        cout<<f()<<' ';
+
+        cout<<endl;
+
+        f() = -3;
+
+        for(int i = 0; i < 5; ++i){
+            cout<<f()<<' ';
+        }
+
     return 0;
 }
