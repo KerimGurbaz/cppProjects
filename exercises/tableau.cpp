@@ -145,8 +145,7 @@
 //     return 0;
 // }
 
-#include <iostream>
-using namespace std;
+
 
 // int &f(){
 //     static int value;
@@ -154,24 +153,61 @@ using namespace std;
 //     return value;
 // }
 
-int & f(){
-    static int valeur =0; 
-    valeur++;
-    return valeur;
-}
+// int & f(){
+//     static int valeur =0; 
+//     valeur++;
+//     return valeur;
+// }
+
+// int main(){
+
+//     for(int i = 0; i < 5; ++i)
+//         cout<<f()<<' ';
+
+//         cout<<endl;
+
+//         f() = -3;
+
+//         for(int i = 0; i < 5; ++i){
+//             cout<<f()<<' ';
+//         }
+
+//     return 0;
+// }
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
 
 int main(){
 
-    for(int i = 0; i < 5; ++i)
-        cout<<f()<<' ';
+    string nom_fichier;
+    cout<<"Entrez le nom du fichier ..."<<endl;
+    getline(cin, nom_fichier);
 
-        cout<<endl;
+    ofstream fichier_sortie(nom_fichier, ios::app);
 
-        f() = -3;
+    if(!fichier_sortie){
+        cerr<<"Erreur : impossible de ouvrir le fichier .. "<<endl;
+        return EXIT_FAILURE;
 
-        for(int i = 0; i < 5; ++i){
-            cout<<f()<<' ';
-        }
+    }
 
-    return 0;
+    string texte;
+    const string terminer = "#exit#";
+
+    cout<<"Entrez le texte à enregistre dans la fichier" ; 
+
+    while(getline(cin, texte)){
+        if(texte == terminer) break;
+        fichier_sortie<<texte<<endl;
+
+    }
+
+    fichier_sortie.close();
+
+    cout<<"Le texte a été enregistre avec success";
+
+   return EXIT_SUCCESS;
 }
