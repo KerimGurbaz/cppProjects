@@ -215,49 +215,67 @@
 //     return EXIT_SUCCESS;
 // }
 
-#include <iostream>
-#include <string>
-using namespace std;
-#include <cmath>
+// #include <iostream>
+// #include <string>
+// using namespace std;
+
+// string to_string_custom (int nmbre, int base =10){
+//     if(base < 2 || base>16 ) return "";
 
 
-string to_string_custom(int nbre , int base = 10){
-    if(base < 2 || base > 16){
-        return "";
-    }
+//     bool negative = false;
+//     if(nmbre < 0){
+//         negative = true;
+//         nmbre = - nmbre;
+//     }
 
-    bool negative = false;
-    if(nbre < 0){
-        negative = true;
-        nbre = -nbre;
-    }
+//     string result = "";
+//     const char * Chiffre = "0123456789ABCDEF";
 
-    const char * Chiffre = "0123456789ABCDEF";
-    string result ="";
+//     do{
+//         int reste = nmbre % base;
+//             result = string(1, Chiffre[reste]) + result;
+//             nmbre /= base;
+//     }while(nmbre > 0);
 
-    do{
-        int reste = nbre % base;
-        result = string(1, Chiffre[reste]) + result; 
-        nbre /= base;
-    }while(nbre > 0);
+//     if(negative){
+//         result = "-" + result;
+//     }
 
-  if(negative){
-    result = "-" + result;
-  }
+//     return result;
+// }
 
-  return result;
+// int main(){
 
+//     cout<<to_string_custom(299,10)<<endl;
+//     cout<<to_string_custom(-299,16)<<endl;
+//     cout<<to_string_custom(255, 2)<<endl;
+//     cout<<to_string_custom(100,10)<<endl;
+//     cout<<to_string_custom(50,20)<<endl;
+
+
+//     return 0;
+// }
+
+ #include <iostream>
+ #include <string>
+ using namespace std;
+
+ enum class Chiffre{ZERO, UN , DEUX, TROIS, QUATRE, CINQ, SIX, SEPT, HUIT, NEUF};
+
+ const string CHIFFRE[] = {"ZERO", "UN" , "DEUX", "TROIS", "QUATRE", "CINQ", "SIX", "SEPT", "HUIT", "NEUF"};
+
+ int main(){
+for(Chiffre i = Chiffre::ZERO; i <= Chiffre::NEUF ;  i =Chiffre(int(i)+1)){
+    cout<<CHIFFRE[int(i)];
+    
+    if(i!=Chiffre::NEUF){
+    cout<<", ";
+}
 }
 
 
-int main(){
-
-    cout<<to_string_custom(299,10)<<endl;
-    cout<<to_string_custom(-299,16)<<endl;
-    cout<<to_string_custom(255, 2)<<endl;
-    cout<<to_string_custom(100,10)<<endl;
-    cout<<to_string_custom(50,20)<<endl;
+    return EXIT_SUCCESS;
+ }
 
 
-    return 0;
-}
