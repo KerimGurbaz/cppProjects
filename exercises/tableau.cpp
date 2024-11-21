@@ -175,39 +175,89 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <fstream>
+// #include <string>
+// using namespace std;
+
+// int main() {
+//     string nom_fichier;
+//     cout << "Entrez le nom du fichier : ";
+//     getline(cin, nom_fichier);
+
+//     // Vérification si le nom du fichier est vide
+//     if (nom_fichier.empty()) {
+//         cerr << "Erreur : le nom du fichier ne peut pas être vide." << endl;
+//         return EXIT_FAILURE;
+//     }
+
+//     ofstream fichier_sortie(nom_fichier, ios::app);
+//     if (!fichier_sortie) {
+//         cerr << "Erreur : impossible d'ouvrir le fichier." << endl;
+//         return EXIT_FAILURE;
+//     }
+
+//     cout << "Le fichier '" << nom_fichier << "' a été ouvert avec succès." << endl;
+//     cout << "Entrez le texte à enregistrer dans le fichier (tapez #exit# pour quitter) : " << endl;
+
+//     string texte;
+//     const string terminer = "#exit#";
+
+//     // Lecture des lignes à enregistrer
+//     while (getline(cin, texte)) {
+//         if (texte == terminer) break;
+//         fichier_sortie << texte << endl;
+//     }
+
+//     fichier_sortie.close();
+//     cout << "Le texte a été enregistré avec succès dans le fichier '" << nom_fichier << "'." << endl;
+
+//     return EXIT_SUCCESS;
+// }
+
 #include <iostream>
-#include <fstream>
 #include <string>
 using namespace std;
+#include <cmath>
+
+
+string to_string_custom(int nbre , int base = 10){
+    if(base < 2 || base > 16){
+        return "";
+    }
+
+    bool negative = false;
+    if(nbre < 0){
+        negative = true;
+        nbre = -nbre;
+    }
+
+    const char * Chiffre = "0123456789ABCDEF";
+    string result ="";
+
+    do{
+        int reste = nbre % base;
+        result = string(1, Chiffre[reste]) + result; 
+        nbre /= base;
+    }while(nbre > 0);
+
+  if(negative){
+    result = "-" + result;
+  }
+
+  return result;
+
+}
+
 
 int main(){
 
-    string nom_fichier;
-    cout<<"Entrez le nom du fichier ..."<<endl;
-    getline(cin, nom_fichier);
+    cout<<to_string_custom(299,10)<<endl;
+    cout<<to_string_custom(-299,16)<<endl;
+    cout<<to_string_custom(255, 2)<<endl;
+    cout<<to_string_custom(100,10)<<endl;
+    cout<<to_string_custom(50,20)<<endl;
 
-    ofstream fichier_sortie(nom_fichier, ios::app);
 
-    if(!fichier_sortie){
-        cerr<<"Erreur : impossible de ouvrir le fichier .. "<<endl;
-        return EXIT_FAILURE;
-
-    }
-
-    string texte;
-    const string terminer = "#exit#";
-
-    cout<<"Entrez le texte à enregistre dans la fichier" ; 
-
-    while(getline(cin, texte)){
-        if(texte == terminer) break;
-        fichier_sortie<<texte<<endl;
-
-    }
-
-    fichier_sortie.close();
-
-    cout<<"Le texte a été enregistre avec success";
-
-   return EXIT_SUCCESS;
+    return 0;
 }
