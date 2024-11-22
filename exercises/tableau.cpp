@@ -257,25 +257,53 @@
 //     return 0;
 // }
 
- #include <iostream>
- #include <string>
- using namespace std;
+//  #include <iostream>
+//  #include <string>
+//  using namespace std;
 
- enum class Chiffre{ZERO, UN , DEUX, TROIS, QUATRE, CINQ, SIX, SEPT, HUIT, NEUF};
+//  enum class Chiffre{ZERO, UN , DEUX, TROIS, QUATRE, CINQ, SIX, SEPT, HUIT, NEUF};
 
- const string CHIFFRE[] = {"ZERO", "UN" , "DEUX", "TROIS", "QUATRE", "CINQ", "SIX", "SEPT", "HUIT", "NEUF"};
+//  const string CHIFFRE[] = {"ZERO", "UN" , "DEUX", "TROIS", "QUATRE", "CINQ", "SIX", "SEPT", "HUIT", "NEUF"};
 
- int main(){
-for(Chiffre i = Chiffre::ZERO; i <= Chiffre::NEUF ;  i =Chiffre(int(i)+1)){
-    cout<<CHIFFRE[int(i)];
+// int main(){
+// for(Chiffre i = Chiffre::ZERO; i <= Chiffre::NEUF ;  i =Chiffre(int(i)+1)){
+//     cout<<CHIFFRE[int(i)];
     
-    if(i!=Chiffre::NEUF){
-    cout<<", ";
+//     if(i!=Chiffre::NEUF){
+//     cout<<", ";
+// }
+// }
+
+//     return EXIT_SUCCESS;
+//  }
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+
+vector<vector<char>> generer(const vector<size_t>& tailles, const vector<char>& contenus){
+
+    vector<vector<char>> v;
+
+    if(tailles.size( != contenus.size())){
+
+        cout<<"Erreur: les vecteur 'tailles' n'est pas égaux tailles de contenus";
+        return v;
+    }
+
+
 }
+
+int main(){
+    vector<size_t> tailles{1,5,6,3};
+    vector<char> contenus{'H', 'E' , 'I', 'G'};
+
+    vector<vector<char>> v = generer(tailles, contenus);
+
+    afficher(v);
+
+    return 0;
 }
-
-
-    return EXIT_SUCCESS;
- }
-
-
