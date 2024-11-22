@@ -145,8 +145,6 @@
 //     return 0;
 // }
 
-
-
 // int &f(){
 //     static int value;
 //     value ++;
@@ -154,7 +152,7 @@
 // }
 
 // int & f(){
-//     static int valeur =0; 
+//     static int valeur =0;
 //     valeur++;
 //     return valeur;
 // }
@@ -222,7 +220,6 @@
 // string to_string_custom (int nmbre, int base =10){
 //     if(base < 2 || base>16 ) return "";
 
-
 //     bool negative = false;
 //     if(nmbre < 0){
 //         negative = true;
@@ -253,7 +250,6 @@
 //     cout<<to_string_custom(100,10)<<endl;
 //     cout<<to_string_custom(50,20)<<endl;
 
-
 //     return 0;
 // }
 
@@ -268,7 +264,7 @@
 // int main(){
 // for(Chiffre i = Chiffre::ZERO; i <= Chiffre::NEUF ;  i =Chiffre(int(i)+1)){
 //     cout<<CHIFFRE[int(i)];
-    
+
 //     if(i!=Chiffre::NEUF){
 //     cout<<", ";
 // }
@@ -277,29 +273,52 @@
 //     return EXIT_SUCCESS;
 //  }
 
-
 #include <iostream>
-#include <string>
+
 #include <vector>
 using namespace std;
 
-
-vector<vector<char>> generer(const vector<size_t>& tailles, const vector<char>& contenus){
+vector<vector<char>> generer(const vector<size_t> &tailles, const vector<char> &contenus)
+{
 
     vector<vector<char>> v;
 
-    if(tailles.size( != contenus.size())){
+    if (tailles.size() != contenus.size())
+    {
 
-        cout<<"Erreur: les vecteur 'tailles' n'est pas égaux tailles de contenus";
+        cout << "Erreur: les vecteur 'tailles' n'est pas égaux tailles de contenus";
         return v;
     }
 
+    for (size_t i = 0; i < tailles.size(); i++)
+    {
+        vector<char> ligne; // creer une nouvelle ligne
 
+        // Ajouter le caractere 'contenus' autant de fois que tailles i
+
+        for (size_t j = 0; j < tailles[i]; j++)
+        {
+            ligne.push_back(contenus[i]);
+        }
+        v.push_back(ligne);
+    }
+
+    return v;
 }
 
-int main(){
-    vector<size_t> tailles{1,5,6,3};
-    vector<char> contenus{'H', 'E' , 'I', 'G'};
+void afficher(const vector<vector<char>> & v){
+    for(size_t i = 0; i < v.size(); i++){
+        for(size_t j= 0; j< v[i].size();j++ ){
+
+            cout<<v[i][j]<< " ";
+        }
+        cout<<endl;
+    }
+}
+int main()
+{
+    vector<size_t> tailles{1, 2, 3, 4};
+    vector<char> contenus{'H', 'E', 'I', 'G'};
 
     vector<vector<char>> v = generer(tailles, contenus);
 
