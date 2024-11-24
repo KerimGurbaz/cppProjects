@@ -525,50 +525,117 @@
 #include <iostream>
 using namespace std;
 
+// int main(){
+//     int taille;
+
+//     //Demander la taille du tableau
+//     cout<<"Entrez la taille du tableau: ";
+//     cin>> taille;
+
+
+//     //Allouer dynamiquement un tableau d'entiers
+//     int* tableau = new int[taille];
+
+//     // Lire les valeurs pour remplir le tableau
+//     cout<<"Entrez" << taille << "entier: " <<endl;
+//     for(int i = 0; i< taille; ++i){
+//         cin>> tableau[i];
+//     }
+
+//     // Allouer dynamiquement un second tableau pour les carrés
+//     int * carres = new int [taille];
+
+//     // Calculer les carres et les stocker dans le second tableau
+//     for(int i = 0; i <taille; ++i){
+//         carres[i] = tableau[i] * tableau[i];
+//     }
+
+//     //Suprimer le premier tableau
+//     delete[] tableau;
+
+//     // Afficher les valeurs du tableau des carrés
+//     for(int i = 0; i < taille; ++i){
+//         cout<<carres[i]<< " ";
+//     }
+
+//     cout<<endl;
+
+//     //Supprimer le tableau des carrés
+
+//     delete[] carres;
+//     carres = nullptr; // Bonne pratique pour éviter les pointeurs pendants
+
+//     return 0;
+// }
+
+// int main(){
+
+//     int taille;
+//     cout<<"enr^trez le taille";
+//     cin>>taille;
+
+//     int * tableau = new int[taille];
+
+//     for(int i = 0;  i< taille; ++i){
+//        cin>>tableau[i];
+//     }
+//     cout<<endl;
+
+//     int * carres = new int[taille];
+
+//     for(int i = 0; i<taille; ++i){
+//         carres[i] = tableau[i] * tableau[i]; 
+//     }
+
+//     cout<< endl;
+
+//     delete[]tableau;
+//     tableau =nullptr;
+     
+//      for(int i = 0;  i<taille ;++i ){
+//         cout<<carres[i]<<" ";
+//      }
+
+//      delete[] carres;
+//      carres = nullptr;
+//     return 0;
+// }
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int main(){
-    int taille;
+    int nval; // nombre de valeurs
 
-    //Demander la taille du tableau
-    cout<<"Entrez la taille du tableau: ";
-    cin>> taille;
+    // Lecture de la taille du tableau
 
+    do{
+        cout<<"Combien de valeurs : ";
+        cin>>nval;
+    }while(nval <= 0); // Refuser les tailles négatives ou nulles
 
-    //Allouer dynamiquement un tableau d'entiers
-    int* tableau = new int[taille];
-
-    // Lire les valeurs pour remplir le tableau
-    cout<<"Entrez" << taille << "entier: " <<endl;
-    for(int i = 0; i< taille; ++i){
-        cin>> tableau[i];
+    // Déclaratiion d'un vecteur pour stocker les valeurs
+    vector<int> valeurs(nval);
+    cout<<"Donnez"<<nval<<" valeurs: "<< endl;
+    for(int i = 0; i<nval; i++){
+        cin>>valeurs[i];
     }
 
-    // Allouer dynamiquement un second tableau pour les carrés
-    int * carres = new int [taille];
 
-    // Calculer les carres et les stocker dans le second tableau
-    for(int i = 0; i <taille; ++i){
-        carres[i] = tableau[i] * tableau[i];
+    // calcul des carres et stockage dans un autre vecteur 
+    vector<int> carres(nval);
+    for(int i = 0; i<nval; i++){
+        carres[i] = valeurs[i] * valeurs[i];
     }
 
-    //Suprimer le premier tableau
-    delete[] tableau;
-
-    // Afficher les valeurs du tableau des carrés
-    for(int i = 0; i < taille; ++i){
-        cout<<carres[i]<< " ";
+    // Affichage des carrés
+    cout<<"Voici leurs carrés : ";
+    for(int i = 0; i< nval; i++){
+        cout<<carres[i]<<" ";
     }
-
     cout<<endl;
-
-    //Supprimer le tableau des carrés
-
-    delete[] carres;
-    carres = nullptr; // Bonne pratique pour éviter les pointeurs pendants
-
-
-
-
-
 
     return 0;
 }
