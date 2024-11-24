@@ -358,60 +358,92 @@
 // }
 
 
-#include <iostream>
-using namespace std;
-#include <vector>
+// #include <iostream>
+// using namespace std;
+// #include <vector>
 
-//declaration de la fonction
-float sommeTableau ( float** tableau, int rows, int cols);
+// //declaration de la fonction
+// float sommeTableau ( float** tableau, int rows, int cols);
 
-int main(){
+// int main(){
 
-    int rows = 3; // nobre de lignes
-    int cols = 4; // nombre de colonnes
+//     int rows = 3; // nobre de lignes
+//     int cols = 4; // nombre de colonnes
 
-    //Allouer la mémoire pour les lignes
-    float ** tableau = new float* [rows];
+//     //Allouer la mémoire pour les lignes
+//     float ** tableau = new float* [rows];
 
-    //Allouer la mémoire pour chaque colonne dans chaque ligne
-    for(int  i = 0;  i<rows; ++i){
-        tableau[i] = new float[cols];
-    }
+//     //Allouer la mémoire pour chaque colonne dans chaque ligne
+//     for(int  i = 0;  i<rows; ++i){
+//         tableau[i] = new float[cols];
+//     }
 
-    // Remplir le tableau avec des valeurs
+//     // Remplir le tableau avec des valeurs
 
-    float valeur = 1.0f;
-    for(int i =0 ; i<rows; ++i){
-        for(int j = 0 ; j< cols; ++j ){
-            tableau[i][j] = valeur++;
-        }
-    }
+//     float valeur = 1.0f;
+//     for(int i =0 ; i<rows; ++i){
+//         for(int j = 0 ; j< cols; ++j ){
+//             tableau[i][j] = valeur++;
+//         }
+//     }
 
-    //3. Appeler la fonction pour calculer la somme
-    float total = sommeTableau(tableau, rows, cols);
+//     //3. Appeler la fonction pour calculer la somme
+//     float total = sommeTableau(tableau, rows, cols);
 
-    // Afficher le résultat
-    cout<<"La somme des éléments du tableau est : "<<total<<endl;
+//     // Afficher le résultat
+//     cout<<"La somme des éléments du tableau est : "<<total<<endl;
     
-    //Liberer la mémoire allouée
-    for(int i = 0; i <rows; i++){
-        delete[] tableau[i];
-    }
+//     //Liberer la mémoire allouée
+//     for(int i = 0; i <rows; i++){
+//         delete[] tableau[i];
+//     }
 
-    delete[] tableau;
+//     delete[] tableau;
    
-    return 0;
-}
+//     return 0;
+// }
 
 
  
 
- float sommeTableau(float** tableau, int rows, int cols){
-    float somme = 0.0f;
-    for(int i = 0; i < rows; ++i){
-        for(int j = 0; j < cols; ++j){
-            somme += tableau[i][j];
-        }
+//  float sommeTableau(float** tableau, int rows, int cols){
+//     float somme = 0.0f;
+//     for(int i = 0; i < rows; ++i){
+//         for(int j = 0; j < cols; ++j){
+//             somme += tableau[i][j];
+//         }
+//     }
+//     return somme;
+//  }
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string remplacer(const string & texte,const string & s_rechercer,const string & s_remplacer ){
+    string resultat = texte;
+
+    size_t pos =0;
+
+    while((pos = resultat.find(s_rechercer, pos)) != string ::npos){
+        resultat.replace(pos, s_rechercer.length(), s_remplacer);
+        pos += s_remplacer.length();
     }
-    return somme;
- }
+   return resultat;
+
+}
+
+int main(){
+    const string ENTREE = "Gaston y a l'telefon qui son \n "
+                          "Et y a jamais person qui repond \n"  ;
+    string s1 , s2;                      
+
+
+    string sortie =  remplacer(ENTREE,"on", "_on_");
+
+    cout<< sortie<<endl;
+
+
+
+    return EXIT_SUCCESS;
+}
