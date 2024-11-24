@@ -275,54 +275,143 @@
 
 #include <iostream>
 
-#include <vector>
+// #include <vector>
+// using namespace std;
+
+// // vector<vector<char>> generer(const vector<size_t> &tailles, const vector<char> &contenus)
+// // {
+
+// //     vector<vector<char>> v;
+
+// //     if (tailles.size() != contenus.size())
+// //     {
+
+// //         cout << "Erreur: les vecteur 'tailles' n'est pas égaux tailles de contenus";
+// //         return v;
+// //     }
+
+// //     for (size_t i = 0; i < tailles.size(); i++)
+// //     {
+// //         vector<char> ligne; // creer une nouvelle ligne
+
+// //         // Ajouter le caractere 'contenus' autant de fois que tailles i
+
+// //         for (size_t j = 0; j < tailles[i]; j++)
+// //         {
+// //             ligne.push_back(contenus[i]);
+// //         }
+// //         v.push_back(ligne);
+// //     }
+
+// //     return v;
+// // }
+
+// // void afficher(const vector<vector<char>> & v){
+// //     for(size_t i = 0; i < v.size(); i++){
+// //         for(size_t j= 0; j< v[i].size();j++ ){
+
+// //             cout<<v[i][j]<< " ";
+// //         }
+// //         cout<<endl;
+// //     }
+// // }
+
+// vector<vector<char>> generer(const vector<size_t>& tailles, const vector<char> & contenus){
+//     vector<vector<char>> v; //vecteur 2D pour stocker les lignes
+
+//     if(tailles.size() != contenus.size()){
+//         cout<<"Erreur les size n'est pas egaux";
+//         return v;
+//     }
+
+//     for(size_t i = 0; i < tailles.size(); i++){
+//         vector<char>lignes;
+//         for(size_t j =0; j<tailles[i] ; j++){
+//             lignes.push_back(contenus[i]);
+//         }
+//        v.push_back(lignes);
+//     }
+
+//     return v;
+// }
+
+// void afficher(const vector<vector<char>>& v){
+//     for(const auto &ligne:v){
+//         for(char c : ligne ){
+//             cout<<c<<" ";
+//         }
+//          cout<<endl;
+
+//     }
+// }
+
+// int main()
+// {
+//     vector<size_t> tailles{1, 2, 3, 4};
+//     vector<char> contenus{'H', 'E', 'I', 'G'};
+
+//     vector<vector<char>> v = generer(tailles, contenus);
+
+//     afficher(v);
+
+//     return 0;
+// }
+
+
+#include <iostream>
 using namespace std;
+#include <vector>
 
-vector<vector<char>> generer(const vector<size_t> &tailles, const vector<char> &contenus)
-{
+//declaration de la fonction
+float sommeTableau ( float** tableau, int rows, int cols);
 
-    vector<vector<char>> v;
+int main(){
 
-    if (tailles.size() != contenus.size())
-    {
+    int rows = 3; // nobre de lignes
+    int cols = 4; // nombre de colonnes
 
-        cout << "Erreur: les vecteur 'tailles' n'est pas égaux tailles de contenus";
-        return v;
+    //Allouer la mémoire pour les lignes
+    float ** tableau = new float* [rows];
+
+    //Allouer la mémoire pour chaque colonne dans chaque ligne
+    for(int  i = 0;  i<rows; ++i){
+        tableau[i] = new float[cols];
     }
 
-    for (size_t i = 0; i < tailles.size(); i++)
-    {
-        vector<char> ligne; // creer une nouvelle ligne
+    // Remplir le tableau avec des valeurs
 
-        // Ajouter le caractere 'contenus' autant de fois que tailles i
-
-        for (size_t j = 0; j < tailles[i]; j++)
-        {
-            ligne.push_back(contenus[i]);
+    float valeur = 1.0f;
+    for(int i =0 ; i<rows; ++i){
+        for(int j = 0 ; j< cols; ++j ){
+            tableau[i][j] = valeur++;
         }
-        v.push_back(ligne);
     }
 
-    return v;
-}
+    //3. Appeler la fonction pour calculer la somme
+    float total = sommeTableau(tableau, rows, cols);
 
-void afficher(const vector<vector<char>> & v){
-    for(size_t i = 0; i < v.size(); i++){
-        for(size_t j= 0; j< v[i].size();j++ ){
-
-            cout<<v[i][j]<< " ";
-        }
-        cout<<endl;
+    // Afficher le résultat
+    cout<<"La somme des éléments du tableau est : "<<total<<endl;
+    
+    //Liberer la mémoire allouée
+    for(int i = 0; i <rows; i++){
+        delete[] tableau[i];
     }
-}
-int main()
-{
-    vector<size_t> tailles{1, 2, 3, 4};
-    vector<char> contenus{'H', 'E', 'I', 'G'};
 
-    vector<vector<char>> v = generer(tailles, contenus);
-
-    afficher(v);
-
+    delete[] tableau;
+   
     return 0;
 }
+
+
+ 
+
+ float sommeTableau(float** tableau, int rows, int cols){
+    float somme = 0.0f;
+    for(int i = 0; i < rows; ++i){
+        for(int j = 0; j < cols; ++j){
+            somme += tableau[i][j];
+        }
+    }
+    return somme;
+ }
