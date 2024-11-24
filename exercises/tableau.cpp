@@ -416,34 +416,159 @@
 //     return somme;
 //  }
 
+
+
+// string remplacer(const string & texte,const string & s_rechercer,const string & s_remplacer ){
+//     string resultat = texte;
+
+//     size_t pos =0;
+
+    // while((pos = resultat.find(s_rechercer, pos)) != string ::npos){
+    //     resultat.replace(pos, s_rechercer.length(), s_remplacer);
+    //     pos += s_remplacer.length();
+    // }
+
+//     while((pos = texte.find(s_rechercer, pos)) != string::npos){
+//         resultat.replace(pos, s_rechercer.length(), s_remplacer);
+//     }
+//    return resultat;
+
+// }
+
+// int main(){
+//     const string ENTREE = "Gaston y a l'telefon qui son \n "
+//                           "Et y a jamais person qui repond \n"  ;
+//     string s1 , s2;                      
+
+
+//     string sortie =  remplacer(ENTREE,"on", "_on_");
+
+//     cout<< sortie<<endl;
+
+
+
+//     return EXIT_SUCCESS;
+// }
+
+// #include <iostream>
+// #include <string>
+// #include <cmath>
+// #include <algorithm>
+// using namespace std;
+
+// int count_letters (const string & text){
+//     return count_if(text.begin(), text.end(), ::isalpha);
+// }
+
+// string to_lowercase(const string& text){
+//     string result = text;
+//     // transform(result.begin(), result.end(), result.begin(), ::tolower);
+//     transform(result.begin(), result.end(), result.begin(), ::tolower);
+//     return result;
+// }
+
+// string remove_espace( const string& text){
+//     string result = text;
+//     result.erase(remove(result.begin(), result.end(), ' '), result.end());
+//     return result;
+// }
+
+// int main(){
+
+//     string text = " Gaston y a l'telefon qui son Et y a jamais person qui repond";
+
+
+//     cout<<remove_espace(text)<<endl;
+//     cout<<to_lowercase(text)<<endl;
+//     cout<<count_letters(text)<<endl;
+
+//     return EXIT_SUCCESS;
+// }
+
+
+// #include <iostream>
+// #include <string>
+// #include <algorithm>
+
+// using namespace std;
+
+// int count_letters( const string & text){
+//     return(count_if(text.begin(), text.end(), ::isalpha ));
+// }
+
+
+// string to_lowercase(const string &text){
+//     string result = text;
+//     transform(result.begin(), result.end(),result.begin(), ::tolower);
+//     return result;
+// }
+
+// string remove_space (const string & text){
+//     string result = text;
+//     result.erase(remove(result.end(), result.end(), ' '), result.end());
+//     return result;
+// }
+
+// int main(){
+//     string text = "Gaston y a l'telefon qui son Et y a jamais person qui repond";
+    
+//     cout << "Metin boşluksuz: " << remove_space(text) << endl;
+//     cout << "Metin küçük harf: " << to_lowercase(text) << endl;
+//     cout << "Toplam harf sayısı: " << count_letters(text) << endl;
+
+//     return 0;
+    
+//     }
+
+
+
 #include <iostream>
-#include <string>
 using namespace std;
 
-string remplacer(const string & texte,const string & s_rechercer,const string & s_remplacer ){
-    string resultat = texte;
-
-    size_t pos =0;
-
-    while((pos = resultat.find(s_rechercer, pos)) != string ::npos){
-        resultat.replace(pos, s_rechercer.length(), s_remplacer);
-        pos += s_remplacer.length();
-    }
-   return resultat;
-
-}
-
 int main(){
-    const string ENTREE = "Gaston y a l'telefon qui son \n "
-                          "Et y a jamais person qui repond \n"  ;
-    string s1 , s2;                      
+    int taille;
+
+    //Demander la taille du tableau
+    cout<<"Entrez la taille du tableau: ";
+    cin>> taille;
 
 
-    string sortie =  remplacer(ENTREE,"on", "_on_");
+    //Allouer dynamiquement un tableau d'entiers
+    int* tableau = new int[taille];
 
-    cout<< sortie<<endl;
+    // Lire les valeurs pour remplir le tableau
+    cout<<"Entrez" << taille << "entier: " <<endl;
+    for(int i = 0; i< taille; ++i){
+        cin>> tableau[i];
+    }
+
+    // Allouer dynamiquement un second tableau pour les carrés
+    int * carres = new int [taille];
+
+    // Calculer les carres et les stocker dans le second tableau
+    for(int i = 0; i <taille; ++i){
+        carres[i] = tableau[i] * tableau[i];
+    }
+
+    //Suprimer le premier tableau
+    delete[] tableau;
+
+    // Afficher les valeurs du tableau des carrés
+    for(int i = 0; i < taille; ++i){
+        cout<<carres[i]<< " ";
+    }
+
+    cout<<endl;
+
+    //Supprimer le tableau des carrés
+
+    delete[] carres;
+    carres = nullptr; // Bonne pratique pour éviter les pointeurs pendants
 
 
 
-    return EXIT_SUCCESS;
+
+
+
+    return 0;
 }
