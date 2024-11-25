@@ -522,8 +522,7 @@
 
 
 
-#include <iostream>
-using namespace std;
+
 
 // int main(){
 //     int taille;
@@ -602,40 +601,66 @@ using namespace std;
 // }
 
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// int main(){
+//     int nval; // nombre de valeurs
+
+//     // Lecture de la taille du tableau
+
+//     do{
+//         cout<<"Combien de valeurs : ";
+//         cin>>nval;
+//     }while(nval <= 0); // Refuser les tailles négatives ou nulles
+
+//     // Déclaratiion d'un vecteur pour stocker les valeurs
+//     vector<int> valeurs(nval);
+//     cout<<"Donnez"<<nval<<" valeurs: "<< endl;
+//     for(int i = 0; i<nval; i++){
+//         cin>>valeurs[i];
+//     }
+
+
+//     // calcul des carres et stockage dans un autre vecteur 
+//     vector<int> carres(nval);
+//     for(int i = 0; i<nval; i++){
+//         carres[i] = valeurs[i] * valeurs[i];
+//     }
+
+//     // Affichage des carrés
+//     cout<<"Voici leurs carrés : ";
+//     for(int i = 0; i< nval; i++){
+//         cout<<carres[i]<<" ";
+//     }
+//     cout<<endl;
+
+//     return 0;
+// }
+
+
+// int main() {
+//     string ad1 = "bonjour";
+//     cout << ad1 << "\n";
+//     ad1 = "monsieur";
+//     cout << ad1 << endl;
+//     return 0;
+// }
+
+
 #include <iostream>
-#include <vector>
+#include <string>
 using namespace std;
 
 int main(){
-    int nval; // nombre de valeurs
+    struct Enreg{
+    int code;
+    float prix;
+    int quantite ; 
+};
 
-    // Lecture de la taille du tableau
+static Enreg art1;
 
-    do{
-        cout<<"Combien de valeurs : ";
-        cin>>nval;
-    }while(nval <= 0); // Refuser les tailles négatives ou nulles
-
-    // Déclaratiion d'un vecteur pour stocker les valeurs
-    vector<int> valeurs(nval);
-    cout<<"Donnez"<<nval<<" valeurs: "<< endl;
-    for(int i = 0; i<nval; i++){
-        cin>>valeurs[i];
-    }
-
-
-    // calcul des carres et stockage dans un autre vecteur 
-    vector<int> carres(nval);
-    for(int i = 0; i<nval; i++){
-        carres[i] = valeurs[i] * valeurs[i];
-    }
-
-    // Affichage des carrés
-    cout<<"Voici leurs carrés : ";
-    for(int i = 0; i< nval; i++){
-        cout<<carres[i]<<" ";
-    }
-    cout<<endl;
-
-    return 0;
+cout<<art1.code;
 }
