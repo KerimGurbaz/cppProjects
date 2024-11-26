@@ -653,14 +653,139 @@
 #include <string>
 using namespace std;
 
-int main(){
-    struct Enreg{
-    int code;
+// int main(){
+//     struct Enreg{
+//     int code;
+//     float prix;
+//     int quantite ; 
+// };
+
+// static Enreg art1;
+
+// cout<<art1.code;
+// }
+// struct point{
+//     char c;
+//     int x, y;
+// };
+
+// void afficherPointValeur(point *p){
+// cout << "point " << p->c << " de coordonnées " << p->x << " " << p->y << endl;
+// }
+
+// int main(){
+// point B = {'B', 10, 12};
+
+// // Appel de la fonction en passant par valeur
+// afficherPointValeur(&B);
+
+//     return 0;
+// }
+
+// struct point{
+//     char c;
+//     int x, y;
+// };
+// void afficherPointReference(const point & p){
+// cout << "point " << p.c << " de coordonnées " << p.x << " " << p.y << endl;
+// }
+
+// int main(){
+// point B = {'B', 10, 12};
+
+// afficherPointReference(B);
+
+
+
+// return 0;
+// }
+
+const int NMOIS = 12;
+
+struct enreg{
+    int stock;
     float prix;
-    int quantite ; 
+    int ventes[NMOIS];
 };
 
-static Enreg art1;
+// void raz(enreg & e){
+//     e.stock = 0; // remet le stock à zéro
+//     for(int i =0; i <NMOIS; ++i){
+//         e.ventes[i] = 0; // Remet chaque élément du tableau ventes à zéro;
+//     }
+// }
 
-cout<<art1.code;
+// #include <iomanip> // pour fixed et setprecistion
+
+// void raz( enreg* e){
+//     if(e != nullptr){
+//         e-> stock =0;
+//         for(int i =0 ; i < NMOIS; ++i){
+//             e->ventes[i] = 0;
+//         }
+//     }
+// }
+
+// void afficher(const enreg& e){
+//     cout<<"Stock: " << e.stock<<endl;
+//     cout<<"Prix : "<< fixed<<setprecision(2)<<e.prix<<endl;
+//     cout<<"Ventes par mois: ";
+//     for(int i =0; i < NMOIS; ++i){
+//         cout<<e.ventes[i]<< " ";
+//     }
+//     cout<<endl;
+// }
+
+// int main(){
+//     // Declaration et iitialisation de la structure
+//     enreg produit;
+
+//     //Affectation des valeurs
+//     produit.stock = 50;
+//     produit.prix = 19.99f;
+
+//     // affectation des ventes pour chaque mois
+//     for(int i = 0; i < NMOIS ; ++i){
+//         produit.ventes[i] = (i+ 1) * 10;
+//     }
+
+//     // Affichage avant la réinitialisation
+//     cout<< "Avant la réinitialisation : "<< endl;
+//     afficher(produit);
+//     cout<< endl;
+
+//     // Appel de la fonction raz
+//     raz(&produit);
+
+//     // Affichage après la réinitialisation
+//     cout<<"Après la réinitialisation: "<<endl;
+//     afficher(produit);
+
+//     return 0;
+// }
+
+#include <iostream>
+#include <vector>
+#include <algorithm> // max_element, min_element için gerekli
+
+int main() {
+    int N;
+    std::cin >> N; // Vektörün boyutunu oku
+
+    std::vector<int> vec(N);
+    for(int &num : vec){
+        std::cin >> num; // Vektör elemanlarını oku
+    }
+
+    // En büyük elemanı bul
+    int max_num = *std::max_element(vec.begin(), vec.end());
+
+    // En küçük elemanı bul
+    int min_num = *std::min_element(vec.begin(), vec.end());
+
+    // Sonuçları yazdır
+    std::cout << max_num << "\n";
+    std::cout << min_num << "\n";
+
+    return 0;
 }
