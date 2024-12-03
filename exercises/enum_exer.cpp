@@ -98,36 +98,83 @@
 //         cout << v << endl;
 
 // }
+
+
+// int main() {
+// 	string s1 = "abcd";
+//     string s2 = "ef";
+//     string result1 = s1 + s2;
+//     int len_s1, len_s2;
+//     len_s1 = size(s1);
+//     len_s2 = size(s2);
+//     cout<<len_s1<<" "<<len_s2<<endl;
+//     cout<<result1<<endl;
+//      string res1="";
+//      string res2="";
+
+//      res1.push_back(s2[0]);
+//     for(int i =1; i<len_s1 ; ++i){
+//        res1.push_back(s1[i]);
+//     }
+          
+  
+     
+//      res2.push_back(s1[0]);
+//     for(int i =1; i<len_s2; ++i){
+//        res2.push_back(s2[i]);
+//     }
+           
+//     cout<<res1<<" "<<res2<<endl;
+//     return 0;
+// }
+
 #include <iostream>
 #include <fstream>
 #include <string>
 using namespace std;
 
 
-int main() {
-	string s1 = "abcd";
-    string s2 = "ef";
-    string result1 = s1 + s2;
-    int len_s1, len_s2;
-    len_s1 = size(s1);
-    len_s2 = size(s2);
-    cout<<len_s1<<" "<<len_s2<<endl;
-    cout<<result1<<endl;
-     string res1="";
-     string res2="";
-     res1.push_back(s2[0]);
-    for(int i =1; i<len_s1 -1 ; i++){
-       res1.push_back(s1[i]);
-    }
-           res1.push_back(s1[0]);
-  
-     
-     res2.push_back(s1[0 ]);
-    for(int i =1; i<len_s2; i++){
-       res1.push_back(s2[i]);
-    }
-           res1.push_back(s2[0]);
-    cout<<res1<< " "<<res2;
-    return 0;
-}
 
+    // string createRes1(const string& s1, const string& s2){
+    //     return s2[0] + s1.substr(1);
+    // }
+
+    // string createRes2(const string& s1, const string& s2){
+    //     return s1[0] + s2.substr(1);
+    // }
+
+// int main(){
+//     string s1 = "abcd";
+//     string s2 = "ef";
+
+//     size_t  len_s1 = size(s1);
+//     size_t len_s2= size(s2);
+
+//     cout<<"Length of s1 : "<<len_s1<< ", Length of s2 : "<<len_s2<<endl;
+
+//     string result1 = s1 + s2;
+
+//     cout<<"Concatenated string : " <<result1<<endl;
+
+
+//     string res1 = createRes1(s1, s2);
+//     string res2 = createRes2(s1,s2);
+
+//     cout << "Result1: " << res1 << endl;
+//     cout << "Result2: " << res2 << endl;
+//     return 0;
+// }
+
+int main() { string a="abcd"; string b="ef";
+
+cout<<a.length()<<" "<< b.length()<<endl;
+
+string temp = a + b ; 
+cout<<temp<<endl;
+
+swap(a[0], b[0]);
+cout<<a<<" "<< b<<endl;
+
+
+
+}
