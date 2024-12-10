@@ -97,4 +97,36 @@ int main(){
 
     return 0;
 }
-*/
+
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+using namespace std;
+
+
+vector<int> parseInts(string str){
+    vector<int> result;
+    stringstream ss(str);
+    string token;
+    
+    while(getline(ss, token, ',')){
+        result.push_back(stoi(token));
+    }
+    return result;
+}
+
+int main(){
+    string str;
+    
+    getline(cin, str);
+    
+    vector<int>parsed = parseInts(str);
+    
+    for(auto num : parsed){
+        cout<<num<< endl;
+    }
+    
+    return 0;*/
