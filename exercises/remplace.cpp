@@ -70,3 +70,31 @@ int main()
 
     return 0;
 }
+
+/*
+//
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+void mystring(const string& str1, const string & str2){
+    string s1 = str1;
+    string s2 = str2;
+    
+    cout<<s1.length()<<" "<<s2.length()<<endl;
+    cout<<s1 + s2<<endl;
+    swap(s1[0], s2[0]);
+    cout<<s1<<" "<<s2;
+}
+
+int main(){
+    
+    string str1 = "abcd";
+    string str2 = "ef";
+    
+    mystring(str1, str2);
+
+    return 0;
+}
+*/
