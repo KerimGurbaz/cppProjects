@@ -96,8 +96,56 @@ for(int i =index ; i<10; i++){
     t1[i]=0;
 }
 
-
-
-
-
 }
+
+
+/*
+#include <iostream>
+using namespace std;
+
+struct Point {
+    double x;
+    double y;
+
+    //constructeur par defaut
+    Point(): x(0.0), y(0.0){}
+
+    // constructeur avec paramètres
+    Point(double x_val, double y_val) : x(x_val), y(y_val){}
+
+    void afficher() const {
+        cout<<"(" << x <<", "<<y<<")"<<endl;
+    }
+
+    //Méthode pour déplacer le point
+    void deplacer(double dx, double dy) {
+        x += dx;
+        y += dy;
+    }
+};
+
+
+
+int main() {
+    // Création d'un point par défaut
+    Point centre{};
+    centre.afficher();
+
+
+    //création d'un point avec des cordonnées spécifiques
+    Point p{1.2, 2.4};
+    p.afficher();
+
+    //Déplacement du point
+    p.deplacer(0.8, 0.6);
+    p.afficher();
+
+    //Modification directe des coordonnées
+    p.x = 5.5;
+    p.y = 10.3;
+
+    cout<<p.x << "---"<< p.y<<endl;
+    return 0;
+}
+
+*/
