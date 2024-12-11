@@ -114,5 +114,69 @@ int main() {
     return 0;
 }
 
+#include <iostream>
+using namespace std;
+
+class Point {
+private:
+    int x, y;
+    const int xMax;
+    const int yMax;
+
+public:
+    // constructeur avec paramètres par défaut
+    Point(int xInit = 0, int yInit = 0, int xLim = 100, int yLim =100) :
+    x(xInit), y(yInit), xMax(xLim), yMax(yLim) {
+        // verification initiale pour respecter les limites
+        if(x < 0) x =0;
+        if(x>xMax) x = xMax;
+        if(y< 0) y = 0;
+        if(y>yMax)y = yMax;
+    }
+
+
+    //Méthode pour déplacer le point
+
+    void deplace(int dx, int dy) {
+        int nouveauX = x + dx;
+        int nouveauY = y + dy;
+
+        //Verifier les limites
+        if(nouveauX >= 0 && nouveauX <=xMax) {
+            x = nouveauX;
+        }
+
+        if(nouveauY >= 0 && nouveauY<=yMax) {
+            y = nouveauY;
+        }
+    }
+
+    // Méthode pour afficher les coordonnées du point
+    void affiche() const {
+        cout<<"("<<x<<", "<<y<<")"<< endl;
+    }
+
+
+
+};
+
+
+
+int main() {
+    Point p1(50, 50);
+    Point p2(100, 0, 200, 200);
+
+    p1.deplace(30, 20);
+    p1.affiche();
+
+    p1.deplace(-100, -100);
+    p1.affiche();
+
+    p2.deplace(0, 250);
+    p2.affiche();
+    
+    return 0;
+}
+
 
 */
