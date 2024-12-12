@@ -147,5 +147,115 @@ int main() {
     cout<<p.x << "---"<< p.y<<endl;
     return 0;
 }
+#include <iostream>
+using namespace std;
 
+class Point {
+private:
+    double x;
+    double y;
+    const double xMax;
+    const double yMax;
+
+public:
+    //Constructeur par defaut avec limites par defaut
+    Point() : x(0.0), y(0.0), xMax(100.0), yMax(100.0){}
+
+    //Constructeur avec coordonnées initiales et limites par defaut
+    Point(double x_val, double y_val) : x(x_val), y(y_val), xMax(100.0), yMax(100.0) {
+        // vérification initiale des coordonnées
+        if(x< 0 || x > xMax || y < 0 || y>yMax) {
+            cout<<"Coordonnées initiales hors des limites. Initialisation à (0.0)"<<endl;
+            x = 0.0;
+            y = 0.0;
+        }
+    }
+
+    // Constructeur avec coordonnées initiales et limites spécifiques
+    Point(double x_val, double y_val, double xMax_val, double yMax_val)
+        :x(x_val), y(y_val), xMax(xMax_val), yMax(yMax_val) {
+        // verification initiale des coordonnées
+        if(x < 0 || x>xMax || y< 0 || y>yMax) {
+            cout<<"Coordonnées initiales hors des limites. initialisation à 0"<<endl;
+            x = 0.0;
+            y = 0.0;
+        }
+    }
+
+    //Méthodes setter avec vérification des limites
+
+    void setX(double x_val) {
+        if(x_val >=0 && x_val <=xMax) {
+            x = x_val;
+        }
+        else {
+            //Effet nul si la nouvelle valeur  dépasse les limites
+            //optionnel : afficher un message d'erreur
+            // cout<<"Nouvelle valeur x hors de limites. Modification annulée."<<endl;
+        }
+    }
+
+    void setY(double y_val) {
+        if(y_val >= 0 && y_val <=yMax) {
+            y = y_val;
+        }else {
+            //Efffet nul si la nouvelle valeur dépasse les limites
+            //Optionnel : afficher un message d'erreur
+            cout<<"Nouvelle valeur y hors des limites. Modiication annulées";
+        }
+
+    }
+
+    //Méthodes getter
+    double getX() const {
+        return x;
+    }
+
+    double getY() const {
+        return y;
+    }
+
+    // Méthode pour afficher les coordonnées et les contreaintes
+    void afficher()const {
+        cout<<"("<<x<<", "<<y<<"), contraintes : [0, "<<xMax<<"]x[0," << yMax<<"]" << endl;
+    }
+
+    //Méthode pour déplacer le point avec vérification des limites
+    void deplacer(double dx, double dy) {
+        double nouvelleX = x + dx;
+        double nouvelleY = y + dy;
+
+        if(nouvelleX >=0 && nouvelleX <= xMax && nouvelleY >=0 && nouvelleY <= yMax) {
+            x = nouvelleX;
+            y = nouvelleY;
+        }else {
+            // Effet nul si le déplacement dépasse les limites
+            // optionnel : afficher un message d'errur
+            cout<<"Déplacement hors des limites. Action annulée."<<endl;
+        }
+
+    }
+
+
+};
+
+int main() {
+    //Creation de p1 avec coordoonées
+    Point p1(1.2, 2.4);
+    cout<<"p1" ; p1.afficher();
+
+    // Déplacement de p1 de (1.0, 3.0) ->(2.2, 5,4)
+    p1.deplacer(1.0, 3.0);
+    cout<<"p1";p1.afficher();
+
+    //Modification de x à 4.0 ->
+    p1.setX(4.0);
+
+    cout<<"p1";p1.afficher();
+
+
+
+
+    return 0;
+}
 */
